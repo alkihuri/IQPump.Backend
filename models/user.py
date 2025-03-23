@@ -1,4 +1,6 @@
-# User model
+
+from db import db
+from datetime import datetime   
 
 class User(db.Model):
     def __init__(self, username, email, password):
