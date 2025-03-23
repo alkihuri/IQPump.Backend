@@ -1,8 +1,10 @@
 # Duel model
-import datetime
+
+from db import db
+from datetime import datetime   
 
 
-class Duel(db.Model):   
+class Duel():   
     def __init__(self, challenger_id, opponent_id):
         self.challenger_id = challenger_id
         self.opponent_id = opponent_id

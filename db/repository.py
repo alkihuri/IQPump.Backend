@@ -1,9 +1,11 @@
  # CRUD операции
 
 from sqlalchemy.orm import Session
-from models import User
 
-class UserRepository:   
+from models.user import User
+ 
+
+class userepository:   
 
     def get_user(db: Session, user_id: int):
         return db.query(User).filter(User.id == user_id).first()
