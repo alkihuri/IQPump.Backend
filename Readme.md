@@ -1,8 +1,8 @@
 **Backend matchmaking service**
 
-- pyhon 
+- python 
 - FastAPI
-- WEBgl
+- WebGL
 - GameDev
 - PostgreSQL
 - SQLLite 
