@@ -1,10 +1,10 @@
 # Duel model
-
-from db import db
+ 
+from pydantic import BaseModel
 from datetime import datetime   
 
 
-class Duel():   
+class Duel(BaseModel):   
     def __init__(self, challenger_id, opponent_id):
         self.challenger_id = challenger_id
         self.opponent_id = opponent_id

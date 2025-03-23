@@ -4,20 +4,16 @@ from db import repository
 router = APIRouter()
 
 
-@router.get("/auth/login/")
-def login(User):
+@router.post("/auth/login/")
+def login(data : User): 
+    repository.userepository.update_user_state(data, True)
+    return {"message": "Login route"}  
 
-    if User:
-        return {"message": "Login route"} 
+
+
+@router.post("/auth/register/")
+def register(data : User):
+
+    repository.userepository.create_user(data)
+    return {"message": "Register route"} 
     
-    repository.userepository.update_user_state(User, "active")
-
-
-
-@router.get("/auth/register/")
-def register(User):
-
-    if User:
-        return {"message": "Register route"} 
-    
-    repository.userepository.create_user(User)

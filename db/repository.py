@@ -7,24 +7,18 @@ from models.user import User
 
 class userepository:   
 
-    def get_user(db: Session, user_id: int):
-        return db.query(User).filter(User.id == user_id).first()
+    users = []
 
+    def __init__(self) -> None:
+        self.users = []
 
-
-    def get_users(db: Session, skip: int = 0, limit: int = 100):
-        return db.query(User).offset(skip).limit(limit).all()
-
-
-    def create_user(db: Session, user: User):
-        db.add(user)
-        db.commit()
-        db.refresh(user)
+    def create_user(user: User):  
+        userepository.users.append(user)
+        print(userepository.users)  
         return user
 
 
-    def update_user_state(db: Session, user: User, state: str):
+    def update_user_state( user: User, state: bool): 
         user.state = state
-        db.commit()
-        db.refresh(user)
+        print(user, state)
         return user
